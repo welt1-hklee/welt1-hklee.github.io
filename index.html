@@ -12,7 +12,7 @@ html{scroll-behavior:smooth}
   --ink:#0b1929;--ink2:#1a2e44;
   --gold:#c49a3c;--gold-lt:#e8c26a;
   --sage:#2a5845;--sage-lt:#3a7860;
-  --cream:#f4f1ec;--cream2:#e8e4db;--white:#fff;
+  --cream:#f4f1ec;--gold-pale:#fef9ee;--cream2:#e8e4db;--white:#fff;
   --muted:#5a6270;--light:#96a0aa;
   --border:rgba(0,0,0,.08);--gb:rgba(196,148,58,.2);
 }
@@ -77,7 +77,7 @@ section{padding:80px 52px;max-width:none}
 /* ── NEWS ── */
 #news{background:rgba(250,244,232,.6);border-top:1px solid var(--gb);border-bottom:1px solid var(--gb);padding:52px}
 #news .st{margin-bottom:20px}
-.ng{display:grid;grid-template-columns:repeat (2,1fr);gap:12px}
+.ng{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .nc{background:var(--white);border-radius:4px;padding:20px;border:1px solid var(--border);cursor:pointer;transition:box-shadow .2s;position:relative;overflow:hidden}
 .nc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
 .nc.upcoming::before{background:var(--gold-lt)}
@@ -276,10 +276,26 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   .traj-cards>div:nth-child(odd){border-right:1px solid var(--border)!important}
   .traj-cards>div:nth-child(3),.traj-cards>div:nth-child(4){border-bottom:none!important}
   .journey-facts{grid-template-columns:1fr!important;gap:10px}
+  .net-split{grid-template-columns:1fr!important}
+  .net-list-col{max-height:none!important;padding:16px}
+  .net-cards{grid-template-columns:1fr 1fr!important}
+  .collab-strip{grid-template-columns:1fr 1fr!important;gap:12px}
 }
 @media (max-width:480px){
   .h-name{font-size:40px}.st{font-size:28px}.sig-grid{grid-template-columns:1fr}.h-stats{grid-template-columns:repeat(3,1fr)}.nc-title{font-size:15px}.fp-t{font-size:15px}.h-slogan{font-size:18px}.h-cq-t{font-size:16px}
 }
+
+@keyframes pinPulse{0%{r:14;opacity:.5}100%{r:26;opacity:0}}
+.pin-pulse{animation:pinPulse 2.2s ease-out infinite}
+.pin-pulse2{animation:pinPulse 2.2s ease-out infinite;animation-delay:.7s}
+.act-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:4px;cursor:pointer;transition:background .18s;border:1px solid transparent;margin-bottom:6px}
+.act-item:hover,.act-item.act-active{background:var(--cream);border-color:var(--border)}
+.act-item.act-current{background:var(--gold-pale);border-color:rgba(196,148,58,.3)}
+.act-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:500;letter-spacing:.05em;margin-bottom:4px}
+.net-split{display:grid;grid-template-columns:55% 45%;gap:0;border:1px solid rgba(196,148,58,.2);border-radius:4px;overflow:hidden}
+.net-map-col{background:#0b1929}
+.net-list-col{background:var(--white);padding:20px;overflow-y:auto;max-height:460px}
+
 </style>
 </head>
 <body>
@@ -362,23 +378,23 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <div class="si">
     <div class="sl">Updates</div>
     <div class="st" style="margin-bottom:18px">News</div>
-    <div class="ng" style="grid-template-columns:repeat (2,1fr)">
+    <div class="ng" style="grid-template-columns:repeat(2,1fr)">
       <div class="nc upcoming" onclick="openPanel('icetol')">
         <div class="nc-date">Aug 17–20, 2026</div>
         <span class="nc-type tup">📢 Upcoming · Confirmed</span>
-        <div class="nc-title">ICETOL 2026 — Accepted Presenter</div>
+        <div class="nc-title">🇩🇪 ICETOL 2026 — Accepted Presenter</div>
         <span class="nc-more">Details →</span>
       </div>
       <div class="nc upcoming" onclick="openPanel('germany')">
         <div class="nc-date">Jul–Aug 2026</div>
         <span class="nc-type tv">🇩🇪 Upcoming</span>
-        <div class="nc-title">Accepted: Visiting Professor — Univ. of Bonn &amp; PH Ludwigsburg</div>
+        <div class="nc-title">🇩🇪 Visiting Professor — Univ. of Bonn &amp; PH Ludwigsburg</div>
         <span class="nc-more">Details →</span>
       </div>
       <div class="nc" onclick="openPanel('monash')">
         <div class="nc-date">Feb–Mar 2026</div>
         <span class="nc-type tv">Visiting Scholar</span>
-        <div class="nc-title">Invited Seminar Speaker — Monash University</div>
+        <div class="nc-title">🇦🇺 Invited Seminar Speaker — Monash University</div>
         <span class="nc-more">Details →</span>
       </div>
       <div class="nc" onclick="openPanel('pub2025a')">
@@ -431,7 +447,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
     <!-- Phase Cards (HTML, replaces SVG) -->
     <div class="traj-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:24px">
       <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--white)">
-        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 01</div>
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 01 · 🇰🇷 🇺🇸</div>
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2004–2012</div>
         <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Foundations of<br>Workplace Learning</div>
         <div style="display:flex;flex-direction:column;gap:5px">
@@ -442,7 +458,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
         </div>
       </div>
       <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--white)">
-        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 02</div>
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 02 · 🇰🇷</div>
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2012–2020</div>
         <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Digital &amp; Social<br>Learning Environments</div>
         <div style="display:flex;flex-direction:column;gap:5px">
@@ -453,7 +469,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
         </div>
       </div>
       <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--gold-pale)">
-        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Phase 03</div>
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Phase 03 · 🇵🇭</div>
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2020–2023</div>
         <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Teacher Education &amp;<br>HyFlex Environments</div>
         <div style="display:flex;flex-direction:column;gap:5px">
@@ -464,7 +480,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
         </div>
       </div>
       <div style="padding:22px 18px;background:var(--ink)">
-        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,148,58,.8);margin-bottom:5px">Phase 04 · Now ★</div>
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,148,58,.8);margin-bottom:5px">Phase 04 · Now ★ 🇵🇭 🇦🇺 🇩🇪</div>
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);margin-bottom:11px">2024–present</div>
         <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--white);margin-bottom:13px;line-height:1.25">Human–AI<br>Cognitive Interaction</div>
         <div style="display:flex;flex-direction:column;gap:5px">
@@ -677,7 +693,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       <div class="ic" onclick="openPanel('hri')">
         <div class="ic-yr">2004–2008</div>
         <span class="ic-role ri">Corporate</span>
-        <div class="ic-org">Hyundai Research Institute (HRI)</div>
+        <div class="ic-org">🇰🇷 Hyundai Research Institute (HRI)</div>
         <div class="ic-loc">Seoul, Korea</div>
         <span class="ic-more">Details →</span>
       </div>
@@ -691,14 +707,14 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       <div class="ic" onclick="openPanel('ched')">
         <div class="ic-yr">2023–2025</div>
         <span class="ic-role rg">Government</span>
-        <div class="ic-org">CHED Philippines</div>
+        <div class="ic-org">🇵🇭 CHED Philippines</div>
         <div class="ic-loc">Manila</div>
         <span class="ic-more">Details →</span>
       </div>
       <div class="ic" onclick="openPanel('moe')">
         <div class="ic-yr">2021–2026</div>
         <span class="ic-role rg">National Research</span>
-        <div class="ic-org">Ministry of Education, Korea</div>
+        <div class="ic-org">🇰🇷 Ministry of Education, Korea</div>
         <div class="ic-loc">Seoul, Korea</div>
         <span class="ic-more">Details →</span>
       </div>
@@ -711,71 +727,100 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <div class="si">
     <div class="sl">Global Network</div>
     <div class="st">International <em>Presence</em></div>
-    <div class="map-wrap">
-      <svg viewBox="0 0 900 370" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-        <rect width="900" height="370" fill="#0b1929"/>
-        <!-- Continents simplified -->
-        <path d="M80,80 L180,70 L220,90 L240,130 L230,170 L210,200 L170,240 L130,240 L100,220 L90,190 L70,160 L60,130 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M160,250 L200,240 L220,260 L225,300 L215,340 L195,360 L175,360 L155,345 L145,315 L140,275 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M375,55 L440,52 L460,68 L450,92 L430,100 L410,97 L388,87 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M388,108 L440,103 L468,122 L472,178 L456,228 L438,252 L413,257 L393,237 L383,193 L378,148 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M458,48 L600,44 L678,58 L698,88 L688,128 L668,152 L638,157 L608,152 L578,162 L552,157 L528,137 L508,117 L478,97 L458,82 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M638,138 L678,132 L698,152 L693,172 L668,177 L642,172 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <path d="M676,258 L754,244 L784,264 L789,302 L769,330 L739,340 L709,330 L689,307 L679,283 Z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
-        <!-- Connections -->
-        <line x1="163" y1="128" x2="668" y2="143" stroke="rgba(196,148,58,.1)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="668" y1="143" x2="696" y2="190" stroke="rgba(58,120,96,.3)" stroke-width="1.5"/>
-        <line x1="696" y1="190" x2="741" y2="308" stroke="rgba(196,148,58,.12)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="668" y1="143" x2="726" y2="122" stroke="rgba(180,100,100,.12)" stroke-width="1" stroke-dasharray="3,3"/>
-        <line x1="435" y1="88" x2="668" y2="143" stroke="rgba(232,194,106,.15)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="435" y1="88" x2="696" y2="190" stroke="rgba(232,194,106,.12)" stroke-width="1" stroke-dasharray="4,4"/>
-        <!-- Indiana -->
-        <circle cx="163" cy="128" r="12" fill="rgba(196,148,58,.15)" stroke="rgba(196,148,58,.55)" stroke-width="1.5"/>
-        <circle cx="163" cy="128" r="4" fill="#c49a3c"/>
-        <text x="163" y="148" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(196,148,58,.9)">Indiana, US</text>
-        <!-- New York -->
-        <circle cx="188" cy="113" r="8" fill="rgba(196,148,58,.1)" stroke="rgba(196,148,58,.35)" stroke-width="1"/>
-        <circle cx="188" cy="113" r="3" fill="rgba(196,148,58,.7)"/>
-        <text x="188" y="128" text-anchor="middle" font-family="Outfit" font-size="7" fill="rgba(196,148,58,.55)">New York</text>
-        <!-- Germany 🇩🇪 UPCOMING 2026 -->
-        <circle cx="435" cy="88" r="14" fill="rgba(232,194,106,.18)" stroke="rgba(232,194,106,.7)" stroke-width="1.8"/>
-        <circle cx="435" cy="88" r="5" fill="#e8c26a"/>
-        <text x="435" y="110" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(232,194,106,.95)" font-weight="500">Germany 🇩🇪</text>
-        <text x="435" y="120" text-anchor="middle" font-family="Outfit" font-size="7" fill="rgba(232,194,106,.6)">Bonn · Ludwigsburg · 2026</text>
-        <rect x="452" y="72" width="74" height="12" rx="2" fill="rgba(232,194,106,.15)" stroke="rgba(232,194,106,.35)" stroke-width="0.5"/>
-        <text x="489" y="81" text-anchor="middle" font-family="Outfit" font-size="7" fill="rgba(232,194,106,.85)">ICETOL Aug 2026</text>
-        <!-- Seoul -->
-        <circle cx="668" cy="143" r="14" fill="rgba(58,120,96,.2)" stroke="rgba(58,120,96,.7)" stroke-width="1.5"/>
-        <circle cx="668" cy="143" r="5" fill="#3a7860"/>
-        <text x="668" y="163" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(58,120,96,.95)">Seoul, KR</text>
-        <!-- Manila -->
-        <circle cx="696" cy="190" r="13" fill="rgba(196,148,58,.2)" stroke="rgba(196,148,58,.85)" stroke-width="2"/>
-        <circle cx="696" cy="190" r="5" fill="#c49a3c"/>
-        <text x="696" y="210" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(196,148,58,1)" font-weight="500">Manila, PH ★</text>
-        <!-- Melbourne -->
-        <circle cx="741" cy="308" r="12" fill="rgba(155,122,196,.17)" stroke="rgba(155,122,196,.6)" stroke-width="1.5"/>
-        <circle cx="741" cy="308" r="4" fill="rgba(155,122,196,.9)"/>
-        <text x="741" y="328" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(155,122,196,.85)">Melbourne, AU</text>
-        <!-- Japan -->
-        <circle cx="726" cy="122" r="8" fill="rgba(180,100,100,.13)" stroke="rgba(180,100,100,.45)" stroke-width="1"/>
-        <circle cx="726" cy="122" r="3" fill="rgba(180,100,100,.75)"/>
-        <text x="726" y="138" text-anchor="middle" font-family="Outfit" font-size="7" fill="rgba(180,100,100,.6)">Japan</text>
-        <!-- Legend -->
-        <circle cx="26" cy="346" r="5" fill="#c49a3c"/>
-        <text x="35" y="350" font-family="Outfit" font-size="8" fill="rgba(255,255,255,.38)">Current</text>
-        <circle cx="95" cy="346" r="5" fill="#3a7860"/>
-        <text x="104" y="350" font-family="Outfit" font-size="8" fill="rgba(255,255,255,.38)">Long-term</text>
-        <circle cx="170" cy="346" r="5" fill="rgba(155,122,196,.9)"/>
-        <text x="179" y="350" font-family="Outfit" font-size="8" fill="rgba(255,255,255,.38)">Visiting</text>
-        <circle cx="235" cy="346" r="5" fill="#e8c26a"/>
-        <text x="244" y="350" font-family="Outfit" font-size="8" fill="rgba(255,255,255,.38)">Upcoming 2026</text>
-      </svg>
+
+    <!-- 6 Country Cards: 3×2 desktop / 2×3 mobile -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px" class="net-cards">
+
+      <div style="background:var(--ink);border-radius:4px;padding:22px;border:2px solid rgba(196,148,58,.4);position:relative">
+        <div style="position:absolute;top:14px;right:14px;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(196,148,58,.8);background:rgba(196,148,58,.15);padding:3px 8px;border-radius:10px">Current ★</div>
+        <img src="https://flagcdn.com/w40/ph.png" width="36" height="24" alt="Philippines" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--white);font-weight:400;margin-bottom:4px">Manila, Philippines</div>
+        <div style="font-size:10px;font-weight:600;color:rgba(196,148,58,.8);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Current Position</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.7">Professor (TT) &amp; Research Fellow<br>Far Eastern University · 2024–present</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:4px;padding:22px;border:1px solid var(--border)">
+        <img src="https://flagcdn.com/w40/kr.png" width="36" height="24" alt="Korea" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:4px">Seoul, Korea</div>
+        <div style="font-size:10px;font-weight:600;color:var(--sage);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Long-term Affiliation</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">Ph.D. Graduate · Yonsei University · 2012<br>Graduate Faculty · 2012–2024</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:4px;padding:22px;border:1px solid var(--border)">
+        <img src="https://flagcdn.com/w40/au.png" width="36" height="24" alt="Australia" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:4px">Melbourne, Australia</div>
+        <div style="font-size:10px;font-weight:600;color:#7a4fa0;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Visiting Scholar · 2026</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">Monash University<br>Faculty of Education · Feb–Mar 2026</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:4px;padding:22px;border:1px solid var(--border)">
+        <img src="https://flagcdn.com/w40/de.png" width="36" height="24" alt="Germany" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:4px">Germany</div>
+        <div style="font-size:10px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Visiting Professor · 2026</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">Univ. of Bonn &amp; PH Ludwigsburg<br>Jul–Aug 2026 · ICETOL 2026 Presenter</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:4px;padding:22px;border:1px solid var(--border)">
+        <img src="https://flagcdn.com/w40/us.png" width="36" height="24" alt="USA" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:4px">Indiana, USA</div>
+        <div style="font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Research Collaboration</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">Indiana University<br>with Prof. Curtis Bonk<br>SDL &amp; online learning</div>
+      </div>
+
+      <div style="background:var(--white);border-radius:4px;padding:22px;border:1px solid var(--border)">
+        <img src="https://flagcdn.com/w40/jp.png" width="36" height="24" alt="Japan" style="border-radius:2px;object-fit:cover;margin-bottom:10px;display:block">
+        <div style="font-family:'Cormorant',serif;font-size:17px;color:var(--ink);font-weight:400;margin-bottom:4px">Japan</div>
+        <div style="font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Research Collaboration</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">with Dr. Chiho Mori<br>Reflective practice &amp;<br>self-directed learning</div>
+      </div>
+
     </div>
-    <div style="margin-top:14px;padding:14px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(196,148,58,.13);border-radius:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <span style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,148,58,.55);flex-shrink:0">Collaborators</span>
-      <span style="font-size:12px;color:rgba(255,255,255,.45)">Prof. Curtis Bonk (Indiana Univ.) · Prof. Lynette Bryan · Prof. Heewon Chang · Dr. Chiho Mori (Japan)</span>
-      <span style="font-size:10px;color:rgba(196,148,58,.35);margin-left:auto">References available upon request</span>
+
+    <!-- Collaborator Cards: 4 avatars -->
+    <div style="background:var(--cream);border-radius:4px;border:1px solid var(--border);padding:22px 24px">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Key Collaborators</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" class="collab-strip">
+
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:16px;color:var(--gold);flex-shrink:0">CB</div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px">Prof. Curtis Bonk</div>
+            <div style="font-size:11px;color:var(--light);margin-bottom:3px">🇺🇸 Indiana University</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">SDL &amp; online learning</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:16px;color:var(--gold);flex-shrink:0">LB</div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px">Prof. Lynette Bryan</div>
+            <div style="font-size:11px;color:var(--light);margin-bottom:3px">🌏 International</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">AI in teacher preparation · Joint SSCI</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:16px;color:var(--gold);flex-shrink:0">HC</div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px">Prof. Heewon Chang</div>
+            <div style="font-size:11px;color:var(--light);margin-bottom:3px">🌏 International</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Online learning outcomes · Joint SSCI</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:16px;color:var(--gold);flex-shrink:0">CM</div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px">Dr. Chiho Mori</div>
+            <div style="font-size:11px;color:var(--light);margin-bottom:3px">🇯🇵 Japan</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Reflective practice &amp; SDL</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:11px;color:var(--light);font-style:italic;text-align:center">Academic references available upon request</div>
     </div>
+
   </div>
 </section>
 
@@ -795,7 +840,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       </div>
     </div>
     <div class="clinks">
-      <a class="clink" href="mailto:hlee@feu.edu.ph"><div class="clic">✉</div><div><div class="cll">Institutional Email</div><div class="clv">hlee@feu.edu.ph</div></div></a>
+      <a class="clink" href="mailto:hlee@feu.edu.ph"><div class="clic">✉</div><div><div class="cll">🇵🇭 Institutional Email</div><div class="clv">hlee@feu.edu.ph</div></div></a>
       <a class="clink" href="mailto:welt1.hklee@gmail.com"><div class="clic">✉</div><div><div class="cll">Personal Email</div><div class="clv">welt1.hklee@gmail.com</div></div></a>
       <a class="clink" href="https://scholar.google.com/citations?user=mVCQoH8AAAAJ" target="_blank" rel="noopener noreferrer"><div class="clic">🎓</div><div><div class="cll">Google Scholar</div><div class="clv">scholar.google.com ↗</div></div></a>
       <a class="clink" href="https://orcid.org/0000-0001-9670-4501" target="_blank" rel="noopener noreferrer"><div class="clic">🔗</div><div><div class="cll">ORCID</div><div class="clv">0000-0001-9670-4501 ↗</div></div></a>
@@ -848,30 +893,33 @@ const panels = {
 
 function openPanel(id){
  const d=panels[id];if(!d)return;
- document.getElementById ('panel-title').textContent=d.title;
- document.getElementById ('panel-body').innerHTML=d.body;
- document.getElementById ('overlay').classList.add ('open');
+ document.getElementById('panel-title').textContent=d.title;
+ document.getElementById('panel-body').innerHTML=d.body;
+ document.getElementById('overlay').classList.add('open');
  document.body.style.overflow='hidden';
 }
 function closeAll (){
- document.getElementById ('overlay').classList.remove ('open');
+ document.getElementById('overlay').classList.remove('open');
  document.body.style.overflow='';
 }
 function closePanel (e){
- if (e.target===document.getElementById ('overlay'))closeAll ();
+ if (e.target===document.getElementById('overlay'))closeAll ();
 }
 
 // Scroll fade-in
 // Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
+Array.from(document.querySelectorAll('a[href^="#"]')).forEach(function(a){
  a.addEventListener('click',e=>{
  const target=document.querySelector(a.getAttribute('href'));
  if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
   })
 })
 
-const obs=new IntersectionObserver (e=>e.forEach (i=>{if (i.isIntersecting)i.target.classList.add ('v')}),{threshold:.08})
-document.querySelectorAll ('.fia').forEach (e=>obs.observe (e))
+const obs=new IntersectionObserver(e=>e.forEach(i=>{if (i.isIntersecting)i.target.classList.add('v')}),{threshold:.08})
+document.querySelectorAll('.fia').forEach(e=>obs.observe(e))
+
+
+
 </script>
 </body>
 </html>
