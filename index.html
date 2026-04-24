@@ -119,6 +119,7 @@ section{padding:80px 52px;max-width:none}
 .sw-t{font-size:13px;font-weight:500;color:rgba(255,255,255,.72);margin-bottom:2px}
 .sw-d{font-size:11px;color:rgba(255,255,255,.36);line-height:1.6}
 .cdt-wrap{margin-top:36px;border:1px solid rgba(196,148,58,.14);border-radius:4px;overflow:hidden}
+.cdt-mobile-summary{display:none}
 
 /* ── TRAJECTORY ── */
 #trajectory{background:var(--cream)}
@@ -249,14 +250,16 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   .h-name{font-size:48px}
   .h-right{margin-top:24px}
   section,#news,#industry,#contact,#network{padding:64px 20px}
+  #publications,#teaching,#network{padding:64px 20px!important}
+  #overview{padding:48px 20px!important}
   body{font-size:15px}
   .ng,.fp3,.ind-grid,.clinks,.collab-row{grid-template-columns:1fr;gap:16px}
   .ng{grid-template-columns:1fr!important}
   .about-grid,.sig-grid,.teach-grid{grid-template-columns:1fr;gap:24px}
   .infographic-img{display:block!important;width:100%!important;height:auto!important}
   .infographic-summary{display:none!important}
-  .cdt-wrap{margin-left:-20px!important;margin-right:-20px!important}  .cdt-wrap svg{min-height:180px;width:100%!important}
-  .cdt-mobile-summary{display:none!important}
+  .cdt-wrap{margin-left:-20px!important;margin-right:-20px!important}
+  .cdt-wrap svg{min-height:180px;width:100%!important}
   .h-btns{gap:8px}
   .btn-gold,.btn-ghost{padding:12px 18px;min-height:44px}
   .fp3{gap:16px}
@@ -283,7 +286,20 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   .st{margin-bottom:36px}
 }
 @media (max-width:480px){
-  .h-name{font-size:40px}.st{font-size:28px}.sig-grid{grid-template-columns:1fr}.h-stats{grid-template-columns:repeat(3,1fr)}.nc-title{font-size:15px}.fp-t{font-size:15px}.h-slogan{font-size:18px}.h-cq-t{font-size:16px}
+  .h-name{font-size:36px}
+  .st{font-size:26px}
+  .sig-grid{grid-template-columns:1fr}
+  .h-stats{grid-template-columns:repeat(3,1fr)}
+  .nc-title{font-size:15px}
+  .fp-t{font-size:15px}
+  .h-slogan{font-size:17px}
+  .h-cq-t{font-size:15px}
+  .traj-cards{grid-template-columns:1fr!important}
+  .net-cards{grid-template-columns:1fr!important}
+  section,#news,#industry,#contact,#network,#publications,#teaching,#overview{padding:48px 16px!important
+  .cdt-mobile-summary{display:block!important}
+  .cdt-wrap svg{display:none!important}
+}
 }
 
 @keyframes pinPulse{0%{r:14;opacity:.5}100%{r:26;opacity:0}}
@@ -389,7 +405,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       <div class="nc upcoming" onclick="openPanel('germany')">
         <div class="nc-date">Jul–Aug 2026</div>
         <span class="nc-type tv"><img src="https://flagcdn.com/w20/de.png" width="18" height="12" alt="DE" style="border-radius:1px;vertical-align:middle;margin-right:4px"> Upcoming</span>
-        <div class="nc-title"><img src="https://flagcdn.com/w20/de.png" width="18" height="12" alt="DE" style="border-radius:1px;vertical-align:middle;margin-right:4px"> Visiting Professor — Univ. of Bonn &amp; PH Ludwigsburg</div>
+        <div class="nc-title"><img src="https://flagcdn.com/w20/de.png" width="18" height="12" alt="DE" style="border-radius:1px;vertical-align:middle;margin-right:4px"> Visiting Professor — Germany 2026</div>
         <span class="nc-more">Details →</span>
       </div>
       <div class="nc" onclick="openPanel('monash')">
@@ -411,7 +427,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
 </section>
 
 <!-- ══ INFOGRAPHIC ══ -->
-<section id="overview" style="background:var(--white);padding:60px 52px 40px">
+<section id="overview" style="padding:60px 52px 40px">
   <div class="si">
     <div class="sl">Research Overview</div>
     <div class="st" style="margin-bottom:24px">At a <em>Glance</em></div>
@@ -515,16 +531,17 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
 </section>
 
 <!-- ══ SIGNATURE CDT ══ -->
-<section id="signature">
+<section id="signature" style="background:var(--ink)">
   <div class="si">
-    <div class="sl">Signature Contribution</div>
-    <div class="st">The Concept I <em>Introduced</em></div>
+    <div class="sl" style="color:rgba(196,148,58,.7)">Signature Contribution</div>
+    <div class="st" style="color:var(--white)">The Concept I <em style="color:var(--gold)">Introduced</em></div>
     <div class="sig-grid">
       <div class="sig-box">
-        <div class="sig-badge">⭐ Original Framework</div>
+        <div class="sig-badge" style="background:rgba(196,148,58,.15);color:var(--gold-lt);border-color:rgba(196,148,58,.3)">⭐ Original Framework</div>
         <div class="sig-name">Cognitive Delegation Threshold</div>
         <div class="sig-abbr">CDT — in development</div>
-        <div class="sig-def">"The point at which a learner transfers cognitive work — reasoning, evaluation, synthesis — to AI.<br><span style='display:block;margin-top:8px'>Understanding this threshold is essential for AI-integrated education that preserves human agency and epistemic responsibility.</span>"</div>
+        <div style="font-family:'Cormorant',serif;font-size:20px;font-weight:300;color:var(--gold-lt);letter-spacing:.02em;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(196,148,58,.2)">Human–AI Cognitive Interaction — Defining When Learners Should Think, and When AI Should.</div>
+        <div class="sig-def" style="color:rgba(255,255,255,.75);border-color:rgba(196,148,58,.3)">"The point at which a learner transfers cognitive work — reasoning, evaluation, synthesis — to AI.<br><span style='display:block;margin-top:8px'>Understanding this threshold is essential for AI-integrated education that preserves human agency and epistemic responsibility.</span>"</div>
         <div style="margin-top:16px;border-top:1px solid rgba(196,148,58,.18);padding-top:14px">
           <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,148,58,.65);margin-bottom:10px">Why it matters</div>
           <div style="display:flex;flex-direction:column;gap:8px">
@@ -568,18 +585,48 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       </svg>
     </div>
     <div class="cdt-mobile-summary">
-      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,148,58,.7);margin-bottom:10px">CDT at a glance</div>
-      <div style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(255,255,255,.55)">
-        <div>→ Human-led cognition: learner retains full reasoning control</div>
-        <div>→ Threshold zone: delegation begins — the critical point</div>
-        <div>→ AI-delegated: cognitive work transferred to AI system</div>
-      </div>
+      <!-- Mini CDT chart: exact replica of desktop SVG, scaled for mobile -->
+      <svg viewBox="0 0 560 140" style="width:100%;display:block;margin-bottom:12px">
+        <defs>
+          <linearGradient id="mcg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#3a7860"/>
+            <stop offset="45%" stop-color="#c49a3c"/>
+            <stop offset="100%" stop-color="#c47060"/>
+          </linearGradient>
+        </defs>
+        <!-- Zone backgrounds -->
+        <rect x="0" y="0" width="218" height="140" fill="rgba(42,88,69,.1)"/>
+        <rect x="218" y="0" width="90" height="140" fill="rgba(196,148,58,.1)"/>
+        <rect x="308" y="0" width="252" height="140" fill="rgba(155,74,74,.1)"/>
+        <!-- Divider lines -->
+        <line x1="218" y1="6" x2="218" y2="132" stroke="rgba(196,148,58,.35)" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="308" y1="6" x2="308" y2="132" stroke="rgba(196,148,58,.35)" stroke-width="1" stroke-dasharray="4,3"/>
+        <!-- Zone labels -->
+        <text x="109" y="14" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="rgba(58,120,96,.8)" letter-spacing="1.5" font-weight="500">HUMAN-LED</text>
+        <text x="263" y="14" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="rgba(196,154,60,.9)" letter-spacing="1" font-weight="500">THRESHOLD</text>
+        <text x="434" y="14" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="rgba(180,100,100,.8)" letter-spacing="1.5" font-weight="500">AI-DELEGATED</text>
+        <!-- CDT label in threshold zone -->
+        <text x="263" y="80" text-anchor="middle" font-family="Cormorant,serif" font-size="14" fill="rgba(196,148,58,.6)" font-style="italic">CDT</text>
+        <!-- Curve path (scaled from original) -->
+        <path d="M22,123 Q123,109 190,91 Q240,72 263,72 Q285,72 325,52 Q414,30 504,16 Q521,13 538,11" stroke="url(#mcg)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Data points -->
+        <circle cx="22" cy="123" r="2.5" fill="rgba(58,120,96,.85)"/>
+        <circle cx="123" cy="109" r="2.5" fill="rgba(58,120,96,.85)"/>
+        <circle cx="190" cy="91" r="2.5" fill="rgba(58,120,96,.85)"/>
+        <circle cx="263" cy="72" r="3.5" fill="rgba(196,148,58,1)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <circle cx="325" cy="52" r="2.5" fill="rgba(180,100,100,.85)"/>
+        <circle cx="414" cy="30" r="2.5" fill="rgba(180,100,100,.85)"/>
+        <circle cx="504" cy="16" r="2.5" fill="rgba(180,100,100,.85)"/>
+        <!-- Axis labels -->
+        <text x="22" y="138" font-family="Outfit,sans-serif" font-size="7" fill="rgba(255,255,255,.2)">Low AI complexity</text>
+        <text x="480" y="138" font-family="Outfit,sans-serif" font-size="7" fill="rgba(255,255,255,.2)">High →</text>
+      </svg>
     </div>
   </div>
 </section>
 
 <!-- ══ PUBLICATIONS ══ -->
-<section id="publications">
+<section id="publications" style="background:var(--white)">
   <div class="si">
     <div class="sl">Publications</div>
     <div class="st">Selected <em>Works</em></div>
@@ -645,7 +692,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
 </section>
 
 <!-- ══ TEACHING ══ -->
-<section id="teaching">
+<section id="teaching" style="background:var(--cream)">
   <div class="si">
     <div class="sl">Teaching</div>
     <div class="st">Courses &amp; <em>Supervision</em></div>
@@ -690,6 +737,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <div class="si">
     <div class="sl">Industry &amp; Policy</div>
     <div class="st">Practice <em>Informing</em> Research</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:24px;max-width:620px;line-height:1.7">Six years in industry before academia — corporate R&amp;D, policy think tanks, and national ministries — shaping research questions that pure academia rarely encounters.</p>
     <div class="ind-grid">
       <div class="ic" onclick="openPanel('moe')">
         <div class="ic-yr">2021–2026</div>
@@ -720,11 +768,15 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
         <span class="ic-more">Details →</span>
       </div>
     </div>
+    <div style="margin-top:20px;padding:14px 18px;background:rgba(42,88,69,.12);border-left:3px solid var(--sage);border-radius:2px;display:flex;gap:14px;align-items:center">
+      <div style="font-size:18px;flex-shrink:0">🌏</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.65"><strong style="color:var(--ink)">Policy reach:</strong> Korea MOE (2021–2026) · Philippines CHED (2023–2025) — AI education frameworks across 10+ universities.</div>
+    </div>
   </div>
 </section>
 
 <!-- ══ NETWORK ══ -->
-<section id="network">
+<section id="network" style="background:var(--white)">
   <div class="si">
     <div class="sl">Global Academic Activities</div>
     <div class="st">International <em>Presence</em></div>
@@ -873,7 +925,7 @@ const panels = {
  monash:{title:"Visiting Scholar — Monash University",body:`<h3>Monash University, Faculty of Education</h3><h4>Appointment</h4><ul><li>Period: February–March 2026</li><li>Role: Visiting Scholar &amp; Invited Seminar Speaker</li><li>Location: Melbourne, Australia</li></ul><h4>Focus</h4><p>AI in higher education and the digital divide. Faculty seminars and collaborative research with the Faculty of Education.</p>`},
  about:{title:"Full Academic Story",body:`<h3>20-Year Research Journey</h3><h4>Industry (2004–2010)</h4><p>Career began at Hyundai Research Institute (HRI), Seoul, designing e-learning systems and blended learning for corporate workforce training. Received Best Researcher Award (2006). From 2009–2010, Learning Fellow at The MASIE Center (New York) — a global learning &amp; technology think tank — focusing on workplace e-learning research and industry consulting.</p><h4>Doctoral &amp; Early Academic (2010–2020)</h4><p>Ph.D. in Educational Technology, Yonsei University (2012, ANABIN H+). Joined Yonsei as Lecturer and Graduate Faculty, developing research on self-directed learning, reflective practice, and collaborative digital environments. Supervised 14 master's theses and participated in externally funded research projects.</p><h4>Expanding Research (2020–2023)</h4><p>Research Professor, Korea University Center for Engineering Education Innovation. Focus on digital transformation and competency-based learning. Published SSCI papers on HyFlex learning, doctoral online learning, and preservice teacher competencies.</p><h4>Current (2024–)</h4><p>Professor (Tenure-Track) and University Research Fellow, Far Eastern University, Manila. Leads the University Digital Transformation Initiative. Visiting Scholar, Monash University (2026). Visiting Professor, Univ. of Bonn &amp; Ludwigsburg (2026). Developing the CDT framework for AI-human cognition in learning.</p>`},
  policy:{title:"National Policy Impact",body:`<h3>National AI Education Policy Contributions</h3><h4>Korea — Ministry of Education (2021–2026)</h4><p>Co-Investigator and Sub-Project Leader, Innovation Sharing University Initiative. Led the educational technology and digital pedagogy workstream. Supervised a 4-person research team. Deliverables contributed to national AI and digital competency curricula deployed across 10+ partner universities.</p><h4>Philippines — CHED SMART Nation 4.0 (2023–2025)</h4><p>Resource Person and National Consultant. Provided expert advisory on AI integration and digital transformation strategy across Philippine higher education institutions. Contributed to national digital literacy policy frameworks.</p>`},
- citations:{title:"Publication Record",body:`<h3>Publication Summary</h3><ul><li>5 SSCI-indexed journal articles</li><li>1 Scopus-indexed article</li><li>2 refereed book chapters (IGI Global)</li><li>11 peer-reviewed conference proceedings (AACE eLearn, ICoME)</li><li>2 scientific monographs (Korean publishers)</li><li>4 manuscripts currently under review</li><li>Total: 30+ peer-reviewed outputs</li></ul><h4>Metrics</h4><ul><li>Citations: 320+</li><li>h-index: 8</li><li>ORCID: 0000-0001-9670-4501</li></ul>`},
+ citations:{title:"Publication Record",body:`<h3>Publication Summary</h3><ul><li>5 SSCI journal articles</li><li>1 Scopus-indexed article</li><li>2 refereed book chapters (IGI Global)</li><li>11 peer-reviewed conference proceedings (AACE eLearn, ICoME)</li><li>2 scientific monographs (Korean publishers)</li><li>4 manuscripts currently under review</li><li>Total: 30+ peer-reviewed outputs</li></ul><h4>Metrics</h4><ul><li>Citations: 320+</li><li>h-index: 8</li><li>ORCID: 0000-0001-9670-4501</li></ul>`},
  mentorship:{title:"Graduate Supervision",body:`<h3>Supervision Record</h3><h4>Completed (Principal Advisor)</h4><ul><li>14 master's theses — Yonsei University (2015–2023)</li><li>3 doctoral dissertations</li></ul><h4>In Progress</h4><ul><li>2 master's theses — Far Eastern University (2024–)</li><li>2 Ed.D. candidates (examiner role) — FEU (2025–)</li></ul><h4>Topics</h4><p>AI-based learning · Instructional design · Self-directed learning · Competency-based design · Digital learning environments</p>`},
   'cdt-detail':{title:"CDT Framework",body:`<h3>Cognitive Delegation Threshold (CDT)</h3><p>An original theoretical framework currently in development, proposing that every learner has a threshold — a cognitive "tipping point" — at which they transfer reasoning, evaluation, or synthesis tasks to an AI system.</p><h4>Why It Matters</h4><ul><li><strong>Deep learning:</strong> When learners cross CDT too readily, they forgo productive cognitive struggle that builds durable understanding.</li><li><strong>Over-reliance:</strong> CDT distinguishes beneficial AI scaffolding from harmful cognitive displacement.</li><li><strong>Design:</strong> Provides curriculum designers with a conceptual tool for calibrating AI integration.</li><li><strong>Policy:</strong> Evidence-anchored lens for evaluating AI-first education models.</li></ul><h4>Status</h4><p>Framework in development. Grounded in 5 SSCI empirical studies. Future: empirical validation and cross-national application.</p>`},
  pub1:{title:"Lee &amp; Bryan (2025)",body:`<h3>Integrating AI in teacher education</h3><span class="p-badge bq1">SSCI · Q1</span><h4>Reference</h4><p>Lee, H.*, &amp; Bryan, L. (2025). Integrating AI in teacher education: exploring the impact on preservice teacher competencies. <em>Professional Development in Education, 51</em>(3), 478–494. <a href="https://doi.org/10.1080/19415257.2025.2490000" target="_blank" rel="noopener noreferrer">doi ↗</a></p><h4>Key Finding</h4><p>AI-integrated teacher education significantly increased preservice teachers' AI literacy, pedagogical adaptability, and self-assessment competencies — with strongest gains in reflective self-evaluation.</p><h4>Significance</h4><p>First empirical evidence linking structured AI module integration to measurable competency gains in preservice teacher programmes. Directly informs CDT framework development.</p>`},
