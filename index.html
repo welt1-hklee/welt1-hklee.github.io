@@ -19,7 +19,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.78}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(244,241,236,.95);backdrop-filter:blur (14px);border-bottom:1px solid var(--gb)}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(244,241,236,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--gb)}
 .nlogo{font-family:'Cormorant',serif;font-size:17px;color:var(--ink)}
 .nlogo em{font-style:italic;color:var(--gold)}
 .nmenu{display:flex;gap:24px;list-style:none}
@@ -29,7 +29,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:54px;display:flex;ali
 .ncv:hover{background:var(--gold);color:var(--white)}
 
 /* ── HERO ── */
-.hero{min-height:100vh;background:var(--ink);display:grid;grid-template-columns:1fr 340px;gap:52px;align-items:center;padding:80px 52px 60px;position:relative;overflow:hidden}
+.hero{min-height:100vh;background:var(--ink);display:flex;align-items:center;padding:80px calc(50% - 468px) 60px;position:relative;overflow:hidden;max-width:none}
+.hero-inner{max-width:1040px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 340px;gap:52px;align-items:center}
 .hero::before{content:'CDT';position:absolute;right:-20px;bottom:-40px;font-family:'Cormorant',serif;font-size:260px;font-weight:300;color:rgba(255,255,255,.022);pointer-events:none;line-height:1}
 .h-eye{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:12px}
 .h-eye::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
@@ -246,7 +247,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   .nmenu{display:none}
   .hamburger{display:flex}
   .ncv{display:none}
-  .hero{grid-template-columns:1fr;padding:76px 20px 44px}
+  .hero{padding:76px 20px 44px}.hero-inner{grid-template-columns:1fr!important}
   .h-name{font-size:48px}
   .h-right{margin-top:24px}
   section,#news,#industry,#contact,#network{padding:64px 20px}
@@ -319,6 +320,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
 
 <!-- NAV -->
 <nav>
+  <div style="max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between">
   <div class="nlogo">Hyunkyung <em>Lee</em></div>
   <ul class="nmenu">
     <li><a href="#overview">Overview</a></li><li><a href="#signature">CDT</a></li>
@@ -331,6 +333,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <button class="hamburger" id="ham" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
+  </div>
 </nav>
 <div class="mobile-menu" id="mmenu">
   <a href="#overview" onclick="closeMenu()">Overview</a>
@@ -345,6 +348,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
 
 <!-- ══ HERO ══ -->
 <div class="hero">
+  <div class="hero-inner">
   <div>
     <div class="h-eye">AI · Education · 20 Years</div>
     <div class="h-name">Hyunkyung<br><em>Lee</em></div>
@@ -387,6 +391,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
       <div class="ha"><div class="ha-dot dim"></div><div><strong>Univ. of Bonn &amp; Ludwigsburg</strong><span>Visiting Prof · Germany · 2026</span></div></div>
       <div class="ha"><div class="ha-dot dim"></div><div><strong>ICETOL 2026</strong><span>Conference Speaker · Aug 17–20</span></div></div>
     </div>
+  </div>
   </div>
 </div>
 
