@@ -126,7 +126,7 @@ section{padding:80px 52px;max-width:none}
 
 /* ── IMPACT ── */
 #impact{background:var(--white)}
-.impact-grid{display:grid;grid-template-columns:repeat (4,1fr);gap:14px;margin-bottom:0}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:0}
 .imp{padding:24px;border-radius:4px;border:1px solid var(--border);cursor:pointer;transition:box-shadow .2s}
 .imp:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
 .imp.big{background:var(--sage);border-color:var(--sage);grid-column:span 2}
@@ -180,7 +180,7 @@ section{padding:80px 52px;max-width:none}
 
 /* ── INDUSTRY ── */
 #industry{background:var(--cream);padding:60px 52px}
-.ind-grid{display:grid;grid-template-columns:repeat (4,1fr);gap:12px;margin-bottom:14px}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
 .ic{background:var(--white);border-radius:4px;padding:18px;border:1px solid var(--border);cursor:pointer;transition:box-shadow .2s}
 .ic:hover{box-shadow:0 3px 14px rgba(0,0,0,.07)}
 .ic-yr{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-bottom:5px}
@@ -196,7 +196,7 @@ section{padding:80px 52px;max-width:none}
 #network .sl::after{background:rgba(196,148,58,.15)}
 #network .st{color:var(--white);margin-bottom:20px}
 .map-wrap{border:1px solid rgba(196,148,58,.13);border-radius:4px;overflow:hidden;background:rgba(255,255,255,.02);margin-bottom:16px}
-.collab-row{display:grid;grid-template-columns:repeat (4,1fr);gap:10px}
+.collab-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .cc{background:rgba(255,255,255,.04);border:1px solid rgba(196,148,58,.13);border-radius:4px;padding:14px;text-align:center}
 .cc-av{width:38px;height:38px;border-radius:50%;background:rgba(196,148,58,.1);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:14px;color:var(--gold-lt);margin:0 auto 8px}
 .cc-name{font-size:12px;font-weight:500;color:rgba(255,255,255,.78);margin-bottom:1px}
@@ -204,7 +204,7 @@ section{padding:80px 52px;max-width:none}
 
 /* ── CONTACT ── */
 #contact{background:var(--cream2);padding:72px 52px}
-.clinks{display:grid;grid-template-columns:repeat (4,1fr);gap:10px}
+.clinks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .clink{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--white);border-radius:4px;border:1px solid var(--border);text-decoration:none;transition:border-color .2s}
 .clink:hover{border-color:var(--gold)}
 .clic{width:28px;height:28px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
@@ -254,7 +254,16 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   .cdt-mobile-summary{display:block!important}
   .h-btns{gap:8px}.btn-gold,.btn-ghost{padding:12px 18px;min-height:44px}
   .fp3{gap:12px}.fp{padding:20px}.nc-title{font-size:14px}.fp-t{font-size:14px}.pub-item{font-size:14px}.ct{font-size:14px}.sw-t{font-size:14px}
- footer{flex-direction:column;gap:4px;padding:16px;text-align:center}
+ footer{flex-direction:column;gap:4px;padding:16px;text-align:center  .stats-bar-4{grid-template-columns:repeat(2,1fr)!important}
+  .stats-bar-4>div{border-right:none!important;border-bottom:1px solid var(--border)}
+  .stats-bar-4>div:nth-child(odd){border-right:1px solid var(--border)!important}
+  .stats-bar-4>div:nth-child(3),.stats-bar-4>div:nth-child(4){border-bottom:none!important  .traj-cards{grid-template-columns:1fr 1fr!important}
+  .traj-cards>div{border-right:none!important;border-bottom:1px solid var(--border)!important}
+  .traj-cards>div:nth-child(odd){border-right:1px solid var(--border)!important}
+  .traj-cards>div:nth-child(3),.traj-cards>div:nth-child(4){border-bottom:none!important}
+  .journey-facts{grid-template-columns:1fr!important;gap:10px}
+}
+
 }
 @media (max-width:480px){
   .h-name{font-size:40px}.st{font-size:28px}.sig-grid{grid-template-columns:1fr}.h-stats{grid-template-columns:repeat(3,1fr)}.nc-title{font-size:15px}.fp-t{font-size:15px}.h-slogan{font-size:18px}.h-cq-t{font-size:16px}
@@ -282,7 +291,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <a href="#overview" onclick="closeMenu()">Overview</a>
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#signature" onclick="closeMenu()">CDT</a>
-  <a href="#trajectory" onclick="closeMenu()">Trajectory</a>
+  
   <a href="#publications" onclick="closeMenu()">Publications</a>
   <a href="#teaching" onclick="closeMenu()">Teaching</a>
   <a href="#network" onclick="closeMenu()">Network</a>
@@ -399,28 +408,78 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   </div>
 </section>
 
-<!-- ══ ABOUT ══ -->
-<section id="about">
+<!-- ══ RESEARCH JOURNEY ══ -->
+<section id="about" style="background:var(--white)">
   <div class="si">
-    <div class="sl">About</div>
-    <div class="st">20-Year <em>Story</em></div>
-    <div class="about-grid">
-      <div class="">
-        <div class="ab-pull">"From designing e-learning at Hyundai to studying how learners surrender thinking to AI — twenty years converged on one question."</div>
-        <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:20px;font-size:13px;color:var(--muted);line-height:1.65">
-          <div style="display:flex;gap:10px"><span style="color:var(--gold);font-weight:500;flex-shrink:0">2004–10</span><span>Industry — HRI (corporate e-learning design) &amp; MASIE Center, NY (workplace learning research)</span></div>
-          <div style="display:flex;gap:10px"><span style="color:var(--gold);font-weight:500;flex-shrink:0">2012</span><span>Ph.D., Educational Technology, Yonsei University (ANABIN H+)</span></div>
-          <div style="display:flex;gap:10px"><span style="color:var(--gold);font-weight:500;flex-shrink:0">2012–24</span><span>Graduate Faculty, Yonsei — SDL, reflective learning, digital environments</span></div>
-          <div style="display:flex;gap:10px"><span style="color:var(--gold);font-weight:500;flex-shrink:0">2024–</span><span>Professor &amp; Research Fellow, FEU Manila — AI in education, CDT framework</span></div>
+    <div class="sl">Research Journey</div>
+    <div class="st">20 Years, <em>One Direction</em></div>
+
+    <div style="font-family:'Cormorant',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.42;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--border);max-width:700px">"From designing e-learning at Hyundai to studying how learners surrender thinking to AI — twenty years converged on one question."</div>
+
+    <!-- Phase Cards (HTML, replaces SVG) -->
+    <div class="traj-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:24px">
+      <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--white)">
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 01</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2004–2012</div>
+        <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Foundations of<br>Workplace Learning</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>HRI · MASIE Center</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>E-learning design</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>Self-directed learning</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>Reflective practice</span></div>
         </div>
-        <div style="font-size:13px;color:var(--ink);font-style:italic;padding:12px 16px;background:var(--cream);border-left:2px solid var(--gold);border-radius:2px;margin-bottom:20px;line-height:1.7">This work contributes to defining how humans learn — and maintain agency — in an AI-driven world.</div>
-        <button class="btn-gold" style="font-size:11px;border:none;cursor:pointer" onclick="openPanel('about')">Full Story →</button>
       </div>
-      <div class="ab-facts">
-        <div class="af"><div class="af-ic">🎓</div><div><div class="af-l">Degree</div><div class="af-v">Ph.D. Educational Technology · Yonsei (2012) · ANABIN H+</div></div></div>
-        <div class="af"><div class="af-ic">🏢</div><div><div class="af-l">Industry Start</div><div class="af-v">Hyundai Research Institute · Best Researcher Award (2006)</div></div></div>
-        <div class="af"><div class="af-ic">🗣</div><div><div class="af-l">Languages</div><div class="af-v">Korean (native) · English (C2) · German (B1/B2)</div></div></div>
-        <div class="af"><div class="af-ic">🏆</div><div><div class="af-l">Awards</div><div class="af-v">Best Research Team, Korea Univ. (2022) · Outstanding Teaching, Yonsei (2023)</div></div></div>
+      <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--white)">
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px">Phase 02</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2012–2020</div>
+        <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Digital &amp; Social<br>Learning Environments</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>Yonsei University</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>Blended learning</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>Social learning</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--sage);flex-shrink:0">·</span><span>5 SSCI publications</span></div>
+        </div>
+      </div>
+      <div style="padding:22px 18px;border-right:1px solid var(--border);background:var(--gold-pale)">
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Phase 03</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--light);margin-bottom:11px">2020–2023</div>
+        <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:13px;line-height:1.25">Teacher Education &amp;<br>HyFlex Environments</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--gold);flex-shrink:0">·</span><span>Preservice teachers</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--gold);flex-shrink:0">·</span><span>HyFlex design</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--gold);flex-shrink:0">·</span><span>International collab.</span></div>
+          <div style="font-size:12px;color:var(--muted);display:flex;gap:6px"><span style="color:var(--gold);flex-shrink:0">·</span><span>Digital transformation</span></div>
+        </div>
+      </div>
+      <div style="padding:22px 18px;background:var(--ink)">
+        <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,148,58,.8);margin-bottom:5px">Phase 04 · Now ★</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);margin-bottom:11px">2024–present</div>
+        <div style="font-family:'Cormorant',serif;font-size:17px;font-weight:400;color:var(--white);margin-bottom:13px;line-height:1.25">Human–AI<br>Cognitive Interaction</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:6px"><span style="color:var(--gold-lt);flex-shrink:0">·</span><span>CDT Framework ⭐</span></div>
+          <div style="font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:6px"><span style="color:var(--gold-lt);flex-shrink:0">·</span><span>AI in teacher education</span></div>
+          <div style="font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:6px"><span style="color:var(--gold-lt);flex-shrink:0">·</span><span>FEU · Monash · Bonn</span></div>
+          <div style="font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:6px"><span style="color:var(--gold-lt);flex-shrink:0">·</span><span>Responsible AI design</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:13px 17px;background:var(--cream);border-left:3px solid var(--gold);border-radius:2px;margin-bottom:28px;max-width:680px">
+      <div style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.75">This work contributes to defining how humans learn — and maintain agency — in an AI-driven world.</div>
+    </div>
+
+    <div class="journey-facts" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div style="padding:18px 20px;background:var(--cream);border-radius:4px;border:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--light);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px">Degree</div>
+        <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4">Ph.D. Educational Technology<br>Yonsei University (2012) · ANABIN H+</div>
+      </div>
+      <div style="padding:18px 20px;background:var(--cream);border-radius:4px;border:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--light);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px">Languages</div>
+        <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4">Korean (native)<br>English (C2) · German (B1/B2)</div>
+      </div>
+      <div style="padding:18px 20px;background:var(--cream);border-radius:4px;border:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--light);letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px">Recognition</div>
+        <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4">Best Research Team, Korea Univ. (2022)<br>Outstanding Teaching, Yonsei (2023)</div>
       </div>
     </div>
   </div>
@@ -490,77 +549,12 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   </div>
 </section>
 
-<!-- ══ TRAJECTORY ══ -->
-<section id="trajectory">
-  <div class="si">
-    <div class="sl">Research Trajectory</div>
-    <div class="st">20 Years, <em>One Direction</em></div>
-    <div class="traj-wrap">
-      <svg viewBox="0 0 1000 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-        <defs>
-          <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c49a3c"/></marker>
-          <marker id="arrd" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="rgba(196,148,58,.35)"/></marker>
-          <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c49a3c"/><stop offset="100%" stop-color="#2a5845" stop-opacity=".7"/></linearGradient>
-        </defs>
-        <!-- Spine -->
-        <line x1="60" y1="90" x2="920" y2="90" stroke="#e8e4db" stroke-width="1.5"/>
-        <!-- Phase 1 -->
-        <circle cx="110" cy="90" r="9" fill="#2a5845" stroke="white" stroke-width="2"/>
-        <text x="110" cy="90" y="94" text-anchor="middle" font-family="Outfit" font-size="8" fill="white" font-weight="600">01</text>
-        <rect x="55" y="108" width="110" height="100" rx="3" fill="#f0f7f3" stroke="#c8e0d4" stroke-width="0.5"/>
-        <text x="110" y="126" text-anchor="middle" font-family="Cormorant,serif" font-size="13" fill="#0b1929">Foundations</text>
-        <text x="110" y="141" text-anchor="middle" font-family="Outfit" font-size="9" fill="#3a7860">2004–2012</text>
-        <text x="110" y="157" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">HRI · MASIE</text>
-        <text x="110" y="170" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">SDL · E-learning</text>
-        <text x="110" y="70" text-anchor="middle" font-family="Outfit" font-size="8" fill="#2a5845" letter-spacing="1">INDUSTRY</text>
-        <!-- Arrow -->
-        <path d="M167,90 L203,90" stroke="#c49a3c" stroke-width="1.5" marker-end="url(#arr)"/>
-        <!-- Phase 2 -->
-        <circle cx="330" cy="90" r="9" fill="#2a5845" stroke="white" stroke-width="2"/>
-        <text x="330" y="94" text-anchor="middle" font-family="Outfit" font-size="8" fill="white" font-weight="600">02</text>
-        <rect x="275" y="108" width="110" height="100" rx="3" fill="#f0f7f3" stroke="#c8e0d4" stroke-width="0.5"/>
-        <text x="330" y="126" text-anchor="middle" font-family="Cormorant,serif" font-size="13" fill="#0b1929">Digital Learning</text>
-        <text x="330" y="141" text-anchor="middle" font-family="Outfit" font-size="9" fill="#3a7860">2012–2020</text>
-        <text x="330" y="157" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">Yonsei Univ.</text>
-        <text x="330" y="170" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">Blended · Social</text>
-        <text x="330" y="70" text-anchor="middle" font-family="Outfit" font-size="8" fill="#2a5845" letter-spacing="1">ACADEMIA</text>
-        <!-- Arrow -->
-        <path d="M387,90 L423,90" stroke="#c49a3c" stroke-width="1.5" marker-end="url(#arr)"/>
-        <!-- Phase 3 -->
-        <circle cx="550" cy="90" r="9" fill="#c49a3c" stroke="white" stroke-width="2"/>
-        <text x="550" y="94" text-anchor="middle" font-family="Outfit" font-size="8" fill="white" font-weight="600">03</text>
-        <rect x="495" y="108" width="110" height="100" rx="3" fill="#fef9ee" stroke="#e8d4a0" stroke-width="0.5"/>
-        <text x="550" y="126" text-anchor="middle" font-family="Cormorant,serif" font-size="13" fill="#0b1929">Teacher Ed</text>
-        <text x="550" y="141" text-anchor="middle" font-family="Outfit" font-size="9" fill="#c49a3c">2020–2023</text>
-        <text x="550" y="157" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">HyFlex · AI</text>
-        <text x="550" y="170" text-anchor="middle" font-family="Outfit" font-size="9" fill="#58606e">Preservice teachers</text>
-        <text x="550" y="70" text-anchor="middle" font-family="Outfit" font-size="8" fill="#c49a3c" letter-spacing="1">EXPANDING</text>
-        <!-- Arrow -->
-        <path d="M607,90 L643,90" stroke="#c49a3c" stroke-width="2" marker-end="url(#arr)"/>
-        <!-- Phase 4 (current) -->
-        <circle cx="790" cy="90" r="11" fill="#0b1929" stroke="#c49a3c" stroke-width="2"/>
-        <text x="790" y="94" text-anchor="middle" font-family="Outfit" font-size="8" fill="#c49a3c" font-weight="600">NOW</text>
-        <rect x="725" y="108" width="130" height="100" rx="3" fill="#0b1929" stroke="rgba(196,148,58,.35)" stroke-width="1"/>
-        <text x="790" y="126" text-anchor="middle" font-family="Cormorant,serif" font-size="13" fill="white">Human–AI</text>
-        <text x="790" y="141" text-anchor="middle" font-family="Outfit" font-size="9" fill="rgba(196,148,58,.85)">2024–present</text>
-        <text x="790" y="157" text-anchor="middle" font-family="Outfit" font-size="9" fill="rgba(255,255,255,.5)">CDT Framework ⭐</text>
-        <text x="790" y="170" text-anchor="middle" font-family="Outfit" font-size="9" fill="rgba(255,255,255,.5)">FEU · Monash</text>
-        <text x="790" y="70" text-anchor="middle" font-family="Outfit" font-size="8" fill="rgba(196,148,58,.85)" letter-spacing="1">CURRENT ★</text>
-        <!-- Future dashed -->
-        <path d="M858,90 L910,90" stroke="rgba(196,148,58,.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrd)"/>
-        <text x="930" y="94" font-family="Outfit" font-size="9" fill="rgba(196,148,58,.35)">→</text>
-      </svg>
-    </div>
-  </div>
-</section>
-
-
 <!-- ══ PUBLICATIONS ══ -->
 <section id="publications">
   <div class="si">
     <div class="sl">Publications</div>
     <div class="st">Selected <em>Works</em></div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px">
+    <div class="stats-bar-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:36px">
       <div style="padding:18px 20px;text-align:center;border-right:1px solid var(--border)">
         <div style="font-family:'Cormorant',serif;font-size:32px;font-weight:300;color:var(--ink);line-height:1">5</div>
         <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px">SSCI Journals</div>
@@ -778,23 +772,7 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
   <div class="si">
     <div class="sl">Contact</div>
     <div class="st" style="margin-bottom:24px">Get in <em>Touch</em></div>
-    <div style="margin-bottom:20px;padding:18px 20px;background:var(--white);border-radius:4px;border:1px solid var(--border)">
-      <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Open For</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;display:inline-block"></span><span>Research collaboration in AI in education, cognitive delegation, and digital learning
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;display:inline-block"></span><span>Invited talks and keynote lectures
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;display:inline-block"></span><span>Visiting scholar and faculty exchange arrangements
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;display:inline-block"></span><span>Graduate student supervision inquiries
-        </div>
-      </div>
-    </div>
+    
     <div <div style="margin-bottom:18px;padding:18px 20px;background:var(--white);border-radius:4px;border-left:3px solid var(--sage);border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
       <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:11px">Open For</div>
       <div style="display:flex;flex-direction:column;gap:8px">
@@ -804,8 +782,9 @@ footer{background:var(--ink);padding:20px 52px;display:flex;align-items:center;j
         <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:9px"><span style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0"></span> Graduate student supervision inquiries</div>
       </div>
     </div>
-    class="clinks">
-      <a class="clink" href="mailto:hlee@feu.edu.ph"><div class="clic">✉</div><div><div class="cll">Email</div><div class="clv">hlee@feu.edu.ph</div></div></a>
+    <div class="clinks">
+      <a class="clink" href="mailto:hlee@feu.edu.ph"><div class="clic">✉</div><div><div class="cll">Institutional Email</div><div class="clv">hlee@feu.edu.ph</div></div></a>
+      <a class="clink" href="mailto:welt1.hklee@gmail.com"><div class="clic">✉</div><div><div class="cll">Personal Email</div><div class="clv">welt1.hklee@gmail.com</div></div></a>
       <a class="clink" href="https://scholar.google.com/citations?user=mVCQoH8AAAAJ" target="_blank" rel="noopener noreferrer"><div class="clic">🎓</div><div><div class="cll">Google Scholar</div><div class="clv">scholar.google.com ↗</div></div></a>
       <a class="clink" href="https://orcid.org/0000-0001-9670-4501" target="_blank" rel="noopener noreferrer"><div class="clic">🔗</div><div><div class="cll">ORCID</div><div class="clv">0000-0001-9670-4501 ↗</div></div></a>
       <a class="clink" href="https://researchgate.net/profile/Hyunkyung-Lee-13" target="_blank" rel="noopener noreferrer"><div class="clic">📄</div><div><div class="cll">ResearchGate</div><div class="clv">researchgate.net ↗</div></div></a>
